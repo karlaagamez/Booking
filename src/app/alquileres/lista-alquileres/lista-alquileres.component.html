@@ -1,0 +1,13 @@
+
+<section id="rentalListing">
+  <h1 class="title">Your Home All Around the World</h1>
+  <div *ngIf = "cargando">
+      CARGANDO...
+    </div>
+  <div class="row">
+    <div class='col-md-3 col-xs-6' *ngFor = "let alquiler of alquileres" >
+      <app-lista-alquileres-item [alquilerActual] = "alquiler"></app-lista-alquileres-item>
+      
+    </div>
+  </div>
+</section>
