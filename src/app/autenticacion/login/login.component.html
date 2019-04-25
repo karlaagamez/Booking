@@ -1,0 +1,49 @@
+<section id="login">
+  <div class="bwm-form">
+    <div class="row">
+      <div class="col-md-5">
+        <h1>Iniciar sesión</h1>
+        <div *ngIf = "notifMsgs" class="alert alert-success">
+          {{notifMsgs}}
+        </div>
+        <form [formGroup] = "loginForm" (ngSubmit) = "login()">
+          <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input  type="email"
+                    class="form-control"
+                    id="email"
+                    formControlName = "email">
+            <div *ngIf="entradaInvalida('email')" class="alert alert-primary" role="alert">
+              <div *ngIf="esRequerido('email')">
+                El correo electronico es un campo obligatorio.
+              </div>
+              <div *ngIf="loginForm.controls['email'].errors.pattern">
+                El correo electronico debe tener un formato valido.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input  type="password"
+                    class="form-control"
+                    id="contrasena"
+                    formControlName = "contrasena">
+          </div>
+          <button [disabled] = "!loginForm.valid" type="submit" class="btn btn-booking">Iniciar sesión</button>
+        </form>
+        <div *ngIf = "this.errores.length > 0" class="alert alert-danger">
+          <p *ngFor = "let error of errores">
+            {{error.titulo}}
+            {{error.detalles}}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 ml-auto">
+        <div class="image-container">
+          <h2 class="catchphrase">Cientos de lugares impresionantes al alcance de unos pocos clics.</h2>
+          <img src="assets/imagenes/login.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

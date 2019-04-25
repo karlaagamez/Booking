@@ -38,3 +38,8 @@
       }
     }
   }
+.puntero {
+  &:hover {
+    cursor: pointer;
+  }
+}

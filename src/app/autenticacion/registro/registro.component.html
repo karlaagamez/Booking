@@ -1,0 +1,196 @@
+<section id="register">
+  <div class="bwm-form">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="page-title">Crea una cuenta</h1>
+        
+        <form #formularioRegistro = "ngForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"
+                   [(ngModel)] = "formDatos.username"
+                   #username = "ngModel"
+                   required minlength="4"
+                   appForbiddenName="Bob"
+                   name = "username"
+                   class="form-control"
+                   id="username"
+                   required>
+            <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                  class="alert alert-primary" role="alert">
+
+              <div *ngIf="username.errors.required">
+                Username es un campo obligatorio.
+              </div>
+              <div *ngIf="username.errors.minlength">
+                Username debe contener al menos 4 caracteres.
+              </div>
+              <div *ngIf="username.errors.forbiddenName">
+                Username no puede ser admin o administrador.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email"
+                   [(ngModel)] = "formDatos.email"
+                   #email = "ngModel"
+                   name = "email"
+                   class="form-control"
+                   id="email"
+                   required>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert alert-primary" role="alert">
+
+              <div *ngIf="email.errors.required">
+                El correo electronico es un campo obligatorio.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text"
+                   [(ngModel)] = "formDatos.nombre"
+                   #nombre = "ngModel"
+                   name = "nombre"
+                   appForbiddenName="Bob"
+                   class="form-control"
+                   id="nombre">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                  class="alert alert-primary" role="alert">
+              <div *ngIf="nombre.errors.required">
+                El nombre real es un campo obligatorio.
+              </div>
+              <div *ngIf="nombre.errors.forbiddenName">
+                El nombre no puede ser admin o administrador.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="apepat">Apellido Paterno</label>
+            <input type="text"
+                   [(ngModel)] = "formDatos.apepat"
+                   #apepat = "ngModel"
+                   required maxlength="30"
+                   name = "apepat"
+                   class="form-control"
+                   id="apepat"
+                   required>
+            <div *ngIf="apepat.invalid && (apepat.dirty || apepat.touched)"
+                  class="alert alert-primary" role="alert">
+              <div *ngIf="apepat.errors.required">
+                El apellido paterno es un campo obligatorio.
+              </div>
+              <div *ngIf="apepat.errors.maxlength">
+                Apellido demasiado largo.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="apemat">Apellido Materno</label>
+            <input type="text"
+                   [(ngModel)] = "formDatos.apemat"
+                   #apemat = "ngModel"
+                   required maxlength="30"
+                   name = "apemat"
+                   class="form-control"
+                   id="apemat">
+              <div *ngIf="apemat.invalid && apemat.errors.maxlength && (apemat.dirty || apemat.touched)" class="alert alert-primary" role="alert">
+                Apellido demasiado largo.
+              </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="text"
+                   [(ngModel)] = "formDatos.edad"
+                   #edad = "ngModel"
+                   name = "edad"
+                   required pattern="^\d+$"
+                   class="form-control"
+                   id="edad"
+                   required>
+            <div *ngIf="edad.invalid && (edad.dirty || edad.touched)"
+                  class="alert alert-primary" role="alert">
+              <div *ngIf="edad.errors.required">
+                La edad es un campo obligatorio.
+              </div>
+              <div *ngIf="edad.errors.pattern">
+                  Este campo solo debe contener numeros.
+                </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password"
+                   [(ngModel)] = "formDatos.contrasena"
+                   #contrasena = "ngModel"
+                   required minlength="8"
+                   required pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+                   name = "contrasena"
+                   class="form-control"
+                   id="contrasena"
+                   (click) = "mostrar()"
+                   required>
+            <div class="alert alert-success alerta" role="alert">
+              <h4 class="alert-heading">Requisitos de contraseña
+                <button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true" (click) = "cerrarRequisitos()">&times;</span>
+                </button>
+              </h4>
+              <hr>
+              <p class="mb-0"><span aria-hidden="true">1.- </span> Debe contar con minimo una letra mayuscula</p>
+
+              <p class="mb-0"><span aria-hidden="true">2.- </span> Debe contar con minimo una letra minuscula</p>
+
+              <p class="mb-0"><span aria-hidden="true">3.- </span> Debe contar con minimo un numero</p>
+
+              <p class="mb-0"><span aria-hidden="true">4.- </span> Debe tener minimo 8 caracteres</p>
+            </div>
+             <div *ngIf = "contrasena.valid"></div>
+          </div>
+          <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)"
+                  class="alert alert-primary" >
+              <div *ngIf="contrasena.errors.required">
+                La contraseña es un campo obligatorio.
+              </div>
+              <div *ngIf = "contrasena.errors.pattern">
+                  La contraseña debe cumplir con los requisitos anteriormente establecidos
+                </div>
+            </div>
+          <div class="form-group">
+            <label for="passwordConfirmation">Confirmar Contraseña</label>
+            <input type="password"
+                   [(ngModel)] = "formDatos.confirmacionContra"
+                   name = "confirmacionContra"
+                   class="form-control"
+                   id="confirmacionContra"
+                   required>
+          </div>
+          <button [disabled] = "!formularioRegistro.form.valid" (click) = "registrarDatos()" type="submit" class="btn btn-booking">Submit</button>
+        </form>
+        <div *ngIf = "this.errores.length > 0" class="alert alert-danger">
+          <p *ngFor = "let error of errores">
+            {{error.titulo}}
+            {{error.detalles}}
+          </p>
+
+        </div>
+      </div>
+      <div class="col-md-6 ml-auto">
+        <div class="image-container">
+          <h2 class="catchphrase">Como miembro, tiene acceso a los lugares más impresionantes de México.</h2>
+          <img src="assets/imagenes/registro.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

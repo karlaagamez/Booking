@@ -1,6 +1,6 @@
 
 <section id="rentalListing">
-  <h1 class="title">Your Home All Around the World</h1>
+  <h1 class="title">Tu Casa Alrededor de México</h1>
   <div *ngIf = "cargando">
       CARGANDO...
     </div>
@@ -11,3 +11,6 @@
     </div>
   </div>
 </section>
+<div *ngIf = "error" routerLink="/alquileres">
+{{error}}
+</div>

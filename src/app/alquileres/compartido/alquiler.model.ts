@@ -1,7 +1,7 @@
 export class Alquiler {
-        id: String;
+        _id: String;
         titulo: String;
-        tipo: String;
+        categoria: String;
         ciudad: String;
         estado: String;
         calle: String;
@@ -16,6 +16,6 @@ export class Alquiler {
         sala: String;
         comedor: String;
         descripcion: String;
-        creacion: String;
+        fechaCreacion: String;
         compartido: boolean;
 }

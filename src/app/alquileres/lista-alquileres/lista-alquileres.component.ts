@@ -11,6 +11,7 @@ export class ListaAlquileresComponent implements OnInit {
 
   alquileres: Alquiler[] = [];
   cargando: boolean = true;
+  error: boolean = false;
   constructor(private alquileresService: AlquileresService) { }
 
   ngOnInit() {
