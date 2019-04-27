@@ -20,8 +20,8 @@ const alquilerlSchema = new Schema({
     descripcion: { type:String, required: true},
     fechaCreacion: { type: Date, default: Date.now},
     compartido: Boolean,  
-    usuario: { type: Schema.Types.ObjectId, ref: 'Usuario'}
-
+    usuario: { type: Schema.Types.ObjectId, ref: 'Usuario'},
+    reservaciones: [ { type: Schema.Types.ObjectId, ref: 'Reservacion'} ]
 });
 
 module.exports = mongoose.model('Alquiler', alquilerlSchema);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 import { AutenticacionService } from '../compartido/autenticacion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 

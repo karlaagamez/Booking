@@ -20,5 +20,11 @@ export class HeaderComponent implements OnInit {
     this.aut.logout();
     this.enrutador.navigate(['/login']);
   }
+  getUsername(){
+    return this.aut.getUsername();
+  }
+  autenticado() {
+    return this.aut.esAutenticado();
+  }
 
 }

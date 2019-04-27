@@ -78,7 +78,7 @@ class FakeDb {
             username: 'pequeña',
             apepat: 'Gamez',
             apemat: 'Ruiz',
-            email: 'pequeña@gmail.com',
+            email: 'pequena@gmail.com',
             contrasena: 'hola1234',
             edad: 22,
             tipo: 'normal'
@@ -92,15 +92,15 @@ class FakeDb {
     }
     pushDatos(){
         const usuario = new Usuario(this.usuarios[0]);
+        const usuario2 = new Usuario(this.usuarios[1]);
         this.rentals.forEach((rental)=>{
             const newRental = new Rental(rental);
             newRental.usuario = usuario;
-
             usuario.alquileres.push(newRental);
-            
             newRental.save();
         });
         usuario.save();
+        usuario2.save();        
     }
     async seeDb(){
         await this.cleanDB();

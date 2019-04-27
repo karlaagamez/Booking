@@ -6,12 +6,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
+import { AutenticacionComponent } from './autenticacion.component';
 
 import { AutenticacionService } from './compartido/autenticacion.service';
 import { AutenticacionGuard } from './compartido/autenticacion.guard';
 import { TokenInterceptor } from './compartido/token.interceptor';
 
-import { NgxPopper } from 'angular-popper';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [ AutenticacionGuard] },
@@ -21,14 +21,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    AutenticacionComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    NgxPopper
+    
   ],
   providers: [
     AutenticacionService,

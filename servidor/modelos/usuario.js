@@ -11,7 +11,9 @@ const usuarioSchema = new Schema({
     contrasena: { type: String, required: true, min: [8, 'Contraseña demasiado pequeña, minimo 8 caracteres']},
     edad: { type: Number, required: true},
     tipo: { type: String, required:true},
-    alquileres: [{ type: Schema.Types.ObjectId, ref: 'Alquiler'}]
+    alquileres: [{ type: Schema.Types.ObjectId, ref: 'Alquiler'}],
+    reservaciones: [ { type: Schema.Types.ObjectId, ref: 'Reservacion'} ]
+
 });
 //FUNCION PARA VERIFICAR SI EL USUARIO EXISTE
 usuarioSchema.methods.verificaContrasena = function(contrasena) {

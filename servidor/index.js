@@ -6,11 +6,12 @@ const express = require('express'),
       Fakedb = require('./fake-db');
 
 const rutasAlquiler = require('./rutas/alquileres'),
-      rutasUsuario = require('./rutas/usuarios');
+      rutasUsuario = require('./rutas/usuarios'),
+      rutasReservaciones = require('./rutas/reservaciones');
 
 mongoose.connect(config.DB_URI).then(()=>{
     const fakeDb = new Fakedb();
-    //fakeDb.seeDb();
+    fakeDb.seeDb();
     
 }, { useNewUrlParser: true });
 
@@ -19,7 +20,8 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/api/v1/alquileres', rutasAlquiler);
-app.use('/api/v1/usuarios', rutasUsuario);
+app.use('/api/v1/usuarios', rutasUsuario); 
+app.use('/api/v1/reservaciones',rutasReservaciones);
 
 const puerto = process.env.PUERTO || 3001;
 app.listen(puerto, function(){

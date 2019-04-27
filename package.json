@@ -22,7 +22,6 @@
     "@angular/router": "~7.1.0",
     "@auth0/angular-jwt": "^2.1.0",
     "@types/jquery": "^3.2.12",
-    "angular-popper": "^2.0.1",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
