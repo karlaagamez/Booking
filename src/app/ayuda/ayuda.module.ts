@@ -11,6 +11,11 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 
 
@@ -30,7 +35,10 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    MatTreeModule
+    MatTreeModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatIconModule
   ]
 })
 export class AyudaModule { }

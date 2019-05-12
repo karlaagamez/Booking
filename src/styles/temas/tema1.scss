@@ -2,12 +2,13 @@
 @include mat-core();
 
 //tema de colores # 1
-$tema1-primary: mat-palette($mat-cyan,500,500,500);
-$tema1-accent: mat-palette($mat-teal, 400, 200, 600);
-$tema1-warn: mat-palette($mat-red);
+$tema1-primary: mat-palette($mat-blue-grey);
+$tema1-accent: mat-palette($mat-pink, 500, 900, A100);
+$tema1-warn: mat-palette($mat-deep-orange);
 
 $tema1: mat-light-theme(
   $tema1-primary,
   $tema1-accent,
   $tema1-warn
 ); 
+
