@@ -1,56 +1,58 @@
-
-<section id="rentalDetails" *ngIf="alquiler">
-  <div class="upper-section">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="{{alquiler.imagen}}" alt="">
-      </div>
-      <div class="col-md-6">
-        <!-- Will be replaced with map !!!! -->
-        <app-mapa [locacion] = "alquiler.ciudad + ', ' + alquiler.calle"></app-mapa>
-      </div>
-    </div>
-  </div>
-
-  <div class="details-section">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="rental">
-          <h2 class="rental-type {{alquiler.categoria}}">{{alquiler.compartido ? 'Compartido' : 'Todo'}} {{alquiler.categoria}}</h2>
-          <h1 class="rental-title">{{alquiler.titulo}}</h1> {{alquiler.ciudad}}
-          <h2 class="rental-city">{{alquiler.ciudad | ucwords}}</h2>
-          <div class="rental-room-info">
-            <span><i class="fa fa-building"></i>{{alquiler.cuartos}} Dormitorios</span>
-            <span><i class="fa fa-user"></i> {{alquiler.cuartos + 4}} Personas</span>
-            <span><i class="fa fa-bed"></i> {{alquiler.cuartos + 2}} Camas</span>
-          </div>
-          <p class="rental-description">
-            {{alquiler.descripcion}}
-          </p>
-          <hr>
-          <div class="rental-assets">
-            <h3 class="title">Assets</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <span><i class="fa fa-asterisk"></i> Cooling</span>
-                <span><i class="fa fa-thermometer"></i> Heating</span>
-                <span><i class="fa fa-location-arrow"></i> Iron</span>
-              </div>
-              <div class="col-md-6">
-                <span><i class="fa fa-desktop"></i> Working area</span>
-                <span><i class="fa fa-cube"></i> Washing machine</span>
-                <span><i class="fa fa-cube"></i> Dishwasher</span>
-              </div>
+<div class="container">
+    <section id="rentalDetails" *ngIf="alquiler">
+        <div class="upper-section">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="{{alquiler.imagen}}" alt="">
+            </div>
+            <div class="col-md-6">
+              <!-- Will be replaced with map !!!! -->
+              <div>aqui va otra cosa xD</div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4"> 
-        <app-alquiler-detalles-booking [precio] = "alquiler.precioNoche" [reservaciones] = "alquiler.reservaciones"></app-alquiler-detalles-booking>  
-      </div>
-    </div>
-  </div>
-</section>
+      
+        <div class="details-section">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="rental">
+                <h2 class="rental-type {{alquiler.categoria}}">{{alquiler.compartido ? 'Compartido' : 'Todo'}} {{alquiler.categoria}}</h2>
+                <h1 class="rental-title">{{alquiler.titulo}}</h1> {{alquiler.ciudad}}
+                <h2 class="rental-city">{{alquiler.ciudad | ucwords}}</h2>
+                <div class="rental-room-info">
+                  <span><i class="fa fa-building"></i>{{alquiler.cuartos}} Dormitorios</span>
+                  <span><i class="fa fa-user"></i> {{alquiler.cuartos + 4}} Personas</span>
+                  <span><i class="fa fa-bed"></i> {{alquiler.cuartos + 2}} Camas</span>
+                </div>
+                <p class="rental-description">
+                  {{alquiler.descripcion}}
+                </p>
+                <hr>
+                <div class="rental-assets">
+                  <h3 class="title">Assets</h3>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span><i class="fa fa-asterisk"></i> Cooling</span>
+                      <span><i class="fa fa-thermometer"></i> Heating</span>
+                      <span><i class="fa fa-location-arrow"></i> Iron</span>
+                    </div>
+                    <div class="col-md-6">
+                      <span><i class="fa fa-desktop"></i> Working area</span>
+                      <span><i class="fa fa-cube"></i> Washing machine</span>
+                      <span><i class="fa fa-cube"></i> Dishwasher</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4"> 
+              <app-alquiler-detalles-booking [precio] = "alquiler.precioNoche"></app-alquiler-detalles-booking>  
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+
 --------------------------------------------------------------------------------------------------
 <div *ngIf = "alquiler">
   <p>{{alquiler._id}}</p>

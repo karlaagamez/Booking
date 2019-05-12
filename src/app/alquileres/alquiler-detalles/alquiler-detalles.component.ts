@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlquileresService} from '../compartido/alquileres.service';
 import { Alquiler } from '../compartido/alquiler.model';
+
 @Component({
   selector: 'app-alquiler-detalles',
   templateUrl: './alquiler-detalles.component.html',

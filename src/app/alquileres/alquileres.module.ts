@@ -10,7 +10,6 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { AlquilerDetallesComponent } from './alquiler-detalles/alquiler-detalles.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { MayusculaPipe } from '../common/pipes/mayuscula.pipe';
-import { MapaModule } from '../common/mapa/mapa.module';
 import { Daterangepicker } from 'ng2-daterangepicker';
 import { AutenticacionGuard } from '../autenticacion/compartido/autenticacion.guard';
 import { AlquilerDetallesBookingComponent } from './alquiler-detalles/alquiler-detalles-booking/alquiler-detalles-booking.component';
@@ -40,7 +39,6 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule.forChild(routes),
         NgPipesModule,
-        MapaModule,
         Daterangepicker
     ],
     providers: [

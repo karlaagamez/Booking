@@ -1,13 +1,14 @@
 @import 'variables';
 
 .navbar {
-    padding: 20px;
-    margin-bottom: 40px;
-  
-  
+    background-color: #ffff;
+    padding: 15px;
+    border-bottom: $light-gray-color .1px solid;
+
     .bwm-search {
-      height: 50px;
+      height: 40px;
       width: 300px;
+      
     }
   
   
@@ -28,13 +29,40 @@
     .btn-bwm-search {
       border-color: $main-color;
       color: $main-color;
-  
+      height: 40px;
+      background-color: #ffff;
+
   
       &:hover, &:focus, &:active {
-        background-color: transparent;
-        border-color: $main-color !important;
-        color: $main-color !important;
+        background-color: $main-color;
+        border-color: #ffff !important;
+        color: #ffff !important;
         box-shadow: none;
       }
     }
   }
+.nav-links{
+  color: $main-color;
+}
+.nav-items {
+  height: 100%;
+  &:hover, &:focus, &:active {
+    border-bottom: $main-color .1px solid;
+
+  }
+}
+.x {
+  color: $main-color;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.nav2 {
+  background-color: #ffffff;
+}
+

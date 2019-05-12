@@ -1,31 +1,49 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink = "/" >Booking</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2 bwm-search" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0 btn-bwm-search" type="submit">Search</button>
-  </form>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" href="#">
+    <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;"  alt="">
+  </a>
+  <form class="form-inline my-2 my-lg-0">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Favorite food" placeholder="Buscar" aria-label="Search" type="search" color="accent">
+        </mat-form-field>
+      <button mat-mini-fab type="submit" color="primary">
+          <mat-icon aria-label="Example icon-button with a heart icon" >search</mat-icon>
+        </button>
+    </form>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item nav-items">
+            <a class="nav-link nav-links" routerLink = "/ayuda" >Ayuda</a>
+        </li>
+        <li class="nav-item nav-items">
+          
+        </li>
       <ng-container *ngIf = "!autenticado()">
           <li class="nav-item active">
-              <a class="nav-link" routerLink = "/login" >Iniciar Sesión <span class="sr-only">(current)</span></a>
+              <a class="nav-link nav-links" routerLink = "/login" >Iniciar Sesión <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink = "/registro" >Registrarse</a>
+            <a class="nav-link nav-links" routerLink = "/registro" >Registrarse</a>
           </li>
       </ng-container> 
       <ng-container *ngIf = "autenticado()">
         <li class="nav-item puntero">
-          <a class="nav-link">{{getUsername()}}</a>
+          <a class="nav-link nav-links">{{getUsername()}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link puntero" (click) = "logout()">Cerrar Sesión</a>
+        <li class="nav-item puntero">
+          <a class="nav-link  nav-links" (click) = "logout()">Cerrar Sesión</a>
         </li>
       </ng-container>   
       
     </ul>
   </div>
 </nav>
+
+
+
+
+

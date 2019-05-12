@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+//tema de colores #2
+
+$tema2-primary: mat-palette($mat-purple);
+$tema2-accent: mat-palette($mat-pink);
+$tema2-warn: mat-palette($mat-red);
+
+$tema2: mat-light-theme(
+  $tema2-primary,
+  $tema2-accent,
+  $tema2-warn
+);
+

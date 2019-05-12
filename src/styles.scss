@@ -1,7 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
+@import './styles/temas/tema1.scss';
+@import './styles/temas/tema2.scss';
+
+.tema1{
+  @include angular-material-theme($tema1);
+
+}
+.tema2{
+  @include angular-material-theme($tema2);
+}
 html, body, p {
     color: $main-text-color;
+    height: 100%;
+}
+body {
+  margin: 0;
 }
 
 .departamento {
@@ -79,3 +93,4 @@ html, body, p {
   .puntero {
     cursor: pointer;
   }
+
