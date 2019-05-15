@@ -14,6 +14,9 @@ import { Daterangepicker } from 'ng2-daterangepicker';
 import { AutenticacionGuard } from '../autenticacion/compartido/autenticacion.guard';
 import { AlquilerDetallesBookingComponent } from './alquiler-detalles/alquiler-detalles-booking/alquiler-detalles-booking.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
+
 const routes: Routes = [
     {path: 'alquileres', 
     component: AlquileresComponent,
@@ -39,7 +42,9 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule.forChild(routes),
         NgPipesModule,
-        Daterangepicker
+        Daterangepicker,
+        MatProgressSpinnerModule,
+        MatButtonModule
     ],
     providers: [
         AlquileresService,

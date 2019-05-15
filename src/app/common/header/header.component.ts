@@ -9,7 +9,8 @@ import { AutenticacionService } from '../../autenticacion/compartido/autenticaci
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  temaActual = '';
+  opened: boolean;  
   constructor(private aut: AutenticacionService,
               private enrutador: Router) { }
 

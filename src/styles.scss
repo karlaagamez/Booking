@@ -11,13 +11,17 @@
   @include angular-material-theme($tema2);
 }
 html, body, p {
-    color: $main-text-color;
-    height: 100%;
+    
 }
 body {
   margin: 0;
 }
-
+.titulo {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font: sans-serif; //cambiar fuente
+}
 .departamento {
     color: #a72da3;
 }
@@ -94,3 +98,4 @@ body {
     cursor: pointer;
   }
 
+  

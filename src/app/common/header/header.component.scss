@@ -25,21 +25,6 @@
       font-size: 14px;
     }
   
-  
-    .btn-bwm-search {
-      border-color: $main-color;
-      color: $main-color;
-      height: 40px;
-      background-color: #ffff;
-
-  
-      &:hover, &:focus, &:active {
-        background-color: $main-color;
-        border-color: #ffff !important;
-        color: #ffff !important;
-        box-shadow: none;
-      }
-    }
   }
 .nav-links{
   color: $main-color;
@@ -65,4 +50,7 @@
 .nav2 {
   background-color: #ffffff;
 }
-
+.sidebar {
+  height: 100%;
+  max-width: 300px;
+}

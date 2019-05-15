@@ -1,28 +1,24 @@
 
 <div class="container">
-    <app-breadcrumb></app-breadcrumb>
-
+    <h1 class="title" style="margin-top:40px;">Preguntas frecuentes</h1>
 </div>
-    <mat-drawer-container class="example-container container">
-        <mat-drawer mode="side" class="sidebar" opened>
-            <mat-list role="list">
-          <div>
-              <mat-list-item class="items" (click) = "setTema(1)">Primeros pasos</mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item class="items" (click) = "setTema(2)">Tema 2</mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item class="items" (click) = "setTema(3)">Tema 3</mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item class="items" (click) = "setTema(4)">Tema 4</mat-list-item>
-              <mat-divider></mat-divider>
-          </div>
-            </mat-list>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" class="sidebar" opened>
+        <mat-list role="list">
+    <div>
+        <mat-list-item class="items" (click) = "setTema(1)">Primeros pasos</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="items" (click) = "setTema(2)">Reservaciones</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="items" (click) = "setTema(3)">Pagos</mat-list-item>
+        <mat-divider></mat-divider>
+    </div>
+        </mat-list>
         </mat-drawer>
         <mat-drawer-content class="content">
             <app-ayuda-lista [tema] = "tema"></app-ayuda-lista>
         </mat-drawer-content>
       </mat-drawer-container>
-
 
 
 

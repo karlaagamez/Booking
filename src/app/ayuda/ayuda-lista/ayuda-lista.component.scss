@@ -11,3 +11,11 @@
 mat-form-field {
   margin-right: 12px;
 }
+.acordeon-titulo{
+  height: 500px;
+}
+@media screen and (max-width: 1000px) {
+  .subtitulo{
+    display: none;
+  }
+}

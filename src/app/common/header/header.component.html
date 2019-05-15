@@ -1,49 +1,84 @@
 
-<nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="#">
-    <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;"  alt="">
-  </a>
-  <form class="form-inline my-2 my-lg-0">
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="Favorite food" placeholder="Buscar" aria-label="Search" type="search" color="accent">
-        </mat-form-field>
-      <button mat-mini-fab type="submit" color="primary">
-          <mat-icon aria-label="Example icon-button with a heart icon" >search</mat-icon>
+<div [class]="temaActual" class="contenedor-principal">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" href="#">
+          <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;"  alt="">
+        </a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-    </form>
-  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item nav-items">
-            <a class="nav-link nav-links" routerLink = "/ayuda" >Ayuda</a>
-        </li>
-        <li class="nav-item nav-items">
-          
-        </li>
-      <ng-container *ngIf = "!autenticado()">
-          <li class="nav-item active">
-              <a class="nav-link nav-links" routerLink = "/login" >Iniciar Sesión <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-links" routerLink = "/registro" >Registrarse</a>
-          </li>
-      </ng-container> 
-      <ng-container *ngIf = "autenticado()">
-        <li class="nav-item puntero">
-          <a class="nav-link nav-links">{{getUsername()}}</a>
-        </li>
-        <li class="nav-item puntero">
-          <a class="nav-link  nav-links" (click) = "logout()">Cerrar Sesión</a>
-        </li>
-      </ng-container>   
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline my-2 my-lg-0">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Favorite food" placeholder="Buscar" aria-label="Search" type="search" color="accent">
+                  </mat-form-field>
+                <button mat-mini-fab type="submit" color="primary">
+                    <mat-icon aria-label="Example icon-button with a heart icon" >search</mat-icon>
+                  </button>
+            </form>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item nav-items">
+                  <a class="nav-link nav-links" routerLink = "/ayuda" >
+                    <mat-icon>help_outline</mat-icon>
+                  </a>
+              </li>
+              <li class="nav-item nav-items">
+                <button mat-icon-button>
+                  <a class="nav-link nav-links">
+                      <mat-icon class="puntero" (click)="sidenav.toggle()">accessible_forward</mat-icon> 
+                  </a>
+                </button>
+              </li>
+            <ng-container *ngIf = "!autenticado()">
+                <li class="nav-item active">
+                    <a class="nav-link nav-links" routerLink = "/login" >Iniciar Sesión <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-links" routerLink = "/registro" >Registrarse</a>
+                </li>
+            </ng-container> 
+            <ng-container *ngIf = "autenticado()">
+              <li class="nav-item puntero">
+                <a class="nav-link nav-links">{{getUsername()}}</a>
+              </li>
+              <li class="nav-item puntero">
+                <a class="nav-link  nav-links" (click) = "logout()">Cerrar Sesión</a>
+              </li>
+            </ng-container>   
+            
+          </ul>
+        </div>
+      </nav>
+      <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
+            <mat-card>
+                <button mat-raised-button color="primary">Primary</button>
+                <button mat-raised-button color="accent">Accent</button>
+                <button mat-raised-button color="warn">Warn</button>
+        </mat-card> <br>
+              <mat-card>
+                  <h4>Temas</h4>
+                  <mat-form-field>
+                      <mat-label>Temas predeterminados</mat-label>
+                      <mat-select [(ngModel)]="temaActual">
+                        <mat-option value="tema1">Tema 1</mat-option>
+                        <mat-option value="tema2">Tema 2</mat-option>
+        
+                      </mat-select>
+                  </mat-form-field> 
+        </mat-card>
+        </mat-sidenav>
       
-    </ul>
-  </div>
-</nav>
-
-
-
-
+        <mat-sidenav-content>
+          <div>
+              
+              <router-outlet></router-outlet>
+              <app-footer></app-footer>
+          </div>
+            
+            
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+</div>
 

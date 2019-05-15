@@ -1,7 +1,10 @@
-#rentalListing {
-    .title {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-  }
+@import 'variables';
+.s {
+  color: $main-color;
+}
+.catchphrase {
+      background-color: rgba(0,0,0, 0.5);
+      width: 100%;
+      left: 0;
+     
+}
