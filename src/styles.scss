@@ -5,13 +5,9 @@
 
 .tema1{
   @include angular-material-theme($tema1);
-
 }
 .tema2{
   @include angular-material-theme($tema2);
-}
-html, body, p {
-    
 }
 body {
   margin: 0;

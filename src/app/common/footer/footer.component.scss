@@ -1,8 +1,13 @@
-footer {
-    position: relative;
-    bottom: 0%;
-    width: 100%;
-    background-color: black;
-    align-self: flex-end;
-    margin-top: 60%;
+.contenedor-principal{
+    margin-top: 10%;
+    height: 300px;
 }
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

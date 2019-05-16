@@ -1,12 +1,8 @@
 @import 'variables';
-.example-container {
-    float: left;
-    height: 100%;
-  }
+
   .sidebar {
     float: left;
     margin-left: 0%;
-    
     border-right: $light-gray-color .1px solid;
   }
   .items {
