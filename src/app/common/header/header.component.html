@@ -1,5 +1,5 @@
 
-<div [class]="temaActual" class="contenedor-principal">
+<div [class]="temaActual" [class]="tamContenido" [class]="" class="contenedor-principal">
     <nav class="navbar navbar-expand-lg navbar-light ">
         <a class="navbar-brand" href="#">
           <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;"  alt="">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <form class="form-inline my-2 my-lg-0">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Favorite food" placeholder="Buscar" aria-label="Search" type="search" color="accent">
+                    <input matInput  placeholder="Buscar" aria-label="Search" type="search" color="accent">
                   </mat-form-field>
                 <button mat-mini-fab type="submit" color="primary">
                     <mat-icon aria-label="Example icon-button with a heart icon" >search</mat-icon>
@@ -31,7 +31,7 @@
               </li>
             <ng-container *ngIf = "!autenticado()">
                 <li class="nav-item active">
-                    <a class="nav-link nav-links" routerLink = "/login" >Iniciar Sesión <span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-links" routerLink = "/login">Iniciar Sesión <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link nav-links" routerLink = "/registro" >Registrarse</a>
@@ -48,37 +48,57 @@
             
           </ul>
         </div>
-      </nav>
-      <mat-sidenav-container class="example-container">
-        <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
-            <mat-card>
-                <button mat-raised-button color="primary">Primary</button>
-                <button mat-raised-button color="accent">Accent</button>
-                <button mat-raised-button color="warn">Warn</button>
-        </mat-card> <br>
-              <mat-card>
-                  <h4>Temas</h4>
-                  <mat-form-field>
-                      <mat-label>Temas predeterminados</mat-label>
-                      <mat-select [(ngModel)]="temaActual">
-                        <mat-option value="tema1">Tema 1</mat-option>
-                        <mat-option value="tema2">Tema 2</mat-option>
-        
-                      </mat-select>
-                  </mat-form-field> 
+    </nav>
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
+        <mat-card>
+          <h4>Temas</h4>
+          <mat-card>
+            <button mat-raised-button color="primary">Primary</button>
+            <button mat-raised-button color="accent">Accent</button>
+            <button mat-raised-button color="warn">Warn</button>
+          </mat-card> <br>
+            <mat-form-field>
+              <mat-label>Temas predeterminados</mat-label>
+              <mat-select [(ngModel)]="temaActual">
+                <mat-option value="tema1">Tema 1</mat-option>
+                <mat-option value="tema2">Tema 2</mat-option>
+              </mat-select>
+            </mat-form-field> 
         </mat-card>
-        </mat-sidenav>
+        <!--AQUI COMIENZA EL COMPONENTE PARA CAMBIAR TAMA;O DE FUENTE-->
+        <mat-card>
+          <mat-card-content>
+            <h2 class="example-h2">Tamaño de fuente</h2>
+            <section>     
+              <p>Contenido</p>
+                <mat-slider
+                    class="example-margin"
+                    [disabled]="disabled"
+                    [invert]="invert"
+                    [max]="max"
+                    [min]="min"
+                    [step]="step"
+                    [thumbLabel]="thumbLabel"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="value"
+                    [vertical]="vertical">
+                </mat-slider>
+            </section>
+            <section>
+                <button mat-raised-button (click)="cambiarFuenteContenido(value)" color="accent">Cambiar</button>
+            </section>
+          </mat-card-content>
+        </mat-card>
+        <!--AQUI TERMINA EL COMPONENTE PARA CAMBIAR EL TAMA;O DE FUENTE-->
+      </mat-sidenav>
       
         <mat-sidenav-content>
           <div>
-              
-              <router-outlet></router-outlet>
+              <router-outlet></router-outlet>              
               <app-footer></app-footer>
           </div>
-            
-            
         </mat-sidenav-content>
-      </mat-sidenav-container>
-      
+    </mat-sidenav-container>  
 </div>
 

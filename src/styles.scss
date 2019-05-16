@@ -62,7 +62,6 @@ body {
     }
   
     h1 {
-      font-weight: 700;
       margin-bottom: 30px;
     }
     .image-container {
@@ -74,13 +73,6 @@ body {
       }
     }
   
-    label {
-      font-size: 12px;
-    }
-  
-    .form-text {
-      font-size: 13px;
-    }
   
     .catchphrase {
       text-align: center;
@@ -97,5 +89,67 @@ body {
   .puntero {
     cursor: pointer;
   }
-
-  
+  //cambio de tamanio para contenido
+._14 {
+  font-size: 14px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 30px;
+  }
+  p{
+    font-size: 14px;
+  }
+}
+._15 {
+  font-size: 15px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 31px;
+  }
+  p{
+    font-size: 15px;
+  }
+}
+._16 {
+  font-size: 16px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 32px;
+  }
+  p{
+    font-size: 16px;
+  }
+}
+._17 {
+  font-size: 17px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 33px;
+  }
+  p{
+    font-size: 17px;
+  }
+}
+._18 {
+  font-size: 18px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 34px;
+  }
+  p{
+    font-size: 18px;
+  }
+}
+._19 {
+  font-size: 19px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 35px;
+  }
+  p{
+    font-size: 19px;
+  }
+}
+._20 {
+  font-size: 20px;
+  h1, h2, h3, h4, h5 , h6 {
+    font-size: 36px;
+  }
+  p{
+    font-size: 20px;
+  }
+}
