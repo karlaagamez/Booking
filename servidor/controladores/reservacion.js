@@ -9,7 +9,7 @@ exports.crearReservacion = function(req, res) {
     const usuario = res.locals.usuario;
     const reservacion = new Reservacion({comienzaEn, terminaEn, montoTotal, dias, invitados});
     //Encontrar alquiler por ID
-    Alquiler.findById(alquiler._id)
+    Alquiler.findById(alquiler.id)
             .populate('reservaciones')
             .populate('usuario')
             .exec(function(err, alquilerEncontrado){
@@ -17,7 +17,7 @@ exports.crearReservacion = function(req, res) {
         if (err) {
             return res.status(422).send({errors: auxErrores(err.errors)});
         }
-        if (alquilerEncontrado.usuario.id === usuario.id) {
+        if (alquilerEncontrado.usuario._id === usuario.id) {
             return res.status(422).send({errors: [{titulo: 'Usuario invalido', detalles: 'No puedes hacer una reservación de tu propio alquiler'}]});
         }
         if (reservacionValida(reservacion, alquilerEncontrado)){

@@ -1,0 +1,14 @@
+ 
+<h1 mat-dialog-title >Confirmar reservación </h1>
+
+<div mat-dialog-content class="contenedor-dialog">
+  <p style="margin-top: 5px">Fechas: {{data.comienzaEn}} a {{data.terminaEn}}</p>
+  <p>{{data.dias}} noches / ${{data.precioNoche}} MXN por noche</p> 
+  <p>Invitados: <em>{{data.invitados}}</em> </p>
+  <p>Costo: <em>${{data.montoTotal}}MXN</em> </p>
+  <p>¿Confirmar reservacion para los dias seleccionados?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()" color="warn" >Cancelar</button>
+    <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial >Confirmar</button>
+</div>

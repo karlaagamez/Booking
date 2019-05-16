@@ -1,3 +1,5 @@
+import { Reservacion } from 'src/app/reservaciones/compartido/reservacion.model';
+
 export class Alquiler {
         _id: String;
         titulo: String;
@@ -18,4 +20,5 @@ export class Alquiler {
         descripcion: String;
         fechaCreacion: String;
         compartido: boolean;
+        reservaciones: Reservacion[];
 }
