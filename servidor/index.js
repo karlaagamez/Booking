@@ -23,7 +23,7 @@ app.use('/api/v1/alquileres', rutasAlquiler);
 app.use('/api/v1/usuarios', rutasUsuario); 
 app.use('/api/v1/reservaciones',rutasReservaciones);
 
-const puerto = process.env.PUERTO || 3001;
+const puerto = process.env.PUERTO || 3002;
 app.listen(puerto, function(){
     console.log("servidor funcionando");
 });

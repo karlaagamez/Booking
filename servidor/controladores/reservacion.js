@@ -38,7 +38,7 @@ exports.crearReservacion = function(req, res) {
             {
                 $push: {reservaciones: reservacion}
             }, function(){});
-            return res.json({empiezaEn: reservacion.empiezaEn, terminaEn: reservacion.terminaEn})
+            return res.json({comienzaEn: reservacion.comienzaEn, terminaEn: reservacion.terminaEn})
             
         } else {
             return res.status(422).send({errors: [{titulo: 'Reservación invalida', detalles: 'Las fechas seleccionadas ya estan reservadas'}]});

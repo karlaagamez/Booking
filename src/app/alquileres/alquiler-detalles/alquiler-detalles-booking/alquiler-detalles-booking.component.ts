@@ -57,7 +57,7 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     this.nuevaReservacion.alquiler = this.alquiler;
     this.reservacionServicio.crearReservacion(this.nuevaReservacion).subscribe(
       (reservacionDatos) => {
-        console.log(reservacionDatos);
+        this.nuevaReservacion = new Reservacion();
       },
       () => {
 
