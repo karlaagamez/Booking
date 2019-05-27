@@ -17,14 +17,14 @@
                   </button>
             </form>
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item nav-items">
-                  <a class="nav-link nav-links" routerLink = "/ayuda" >
+              <li class="nav-item">
+                  <a class="nav-link" routerLink = "/ayuda" matTooltip="Preguntas frecuentes">
                     <mat-icon>help_outline</mat-icon>
                   </a>
               </li>
-              <li class="nav-item nav-items">
-                <button mat-icon-button (click)="sidenav.toggle()">
-                  <a class="nav-link nav-links">
+              <li class="nav-item">
+                <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Opciones de accesibilidad">
+                  <a class="nav-link">
                       <mat-icon class="puntero">accessible_forward</mat-icon> 
                   </a>
                 </button>
@@ -49,7 +49,7 @@
           </ul>
         </div>
     </nav>
-    <mat-sidenav-container class="example-container">
+    <mat-sidenav-container>
       <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
         <mat-card>
           <h4>Temas</h4>

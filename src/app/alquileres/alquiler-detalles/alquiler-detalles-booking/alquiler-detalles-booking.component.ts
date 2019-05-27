@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, ViewContainerRef } from '@angular/core';
 import { Reservacion } from 'src/app/reservaciones/compartido/reservacion.model';
 import { Alquiler } from '../../compartido/alquiler.model';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ModalComponent } from './modal/modal.component';
 import { AyudanteService } from '../../../common/servicio/ayudante.service';
 import { ReservacionService } from '../../../reservaciones/compartido/reservacion.service';
+import { ToastrService } from 'ngx-toastr';
+
 import * as momento from 'moment';
 
 
@@ -25,25 +27,30 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     locale: { format: Reservacion.FORMATO },
     alwaysShowCalendars: false,
     opens: 'left',
+    drops: 'down',
+    buttonClasses: 'mat-raised-button',
+    showCustomRangeLabel: true,
+    showISOWeekNumbers: true,
     isInvalidDate: this.verificarDiasInvalidos.bind(this)
   };
 
   constructor(
     private ayudante: AyudanteService,
     private dialog: MatDialog,
-    private reservacionServicio: ReservacionService) { }
+    private reservacionServicio: ReservacionService,
+    private toastr: ToastrService) {}
 
   ngOnInit() {
     this.nuevaReservacion = new Reservacion();
     this.getBookedOutDates();
   }
-  reservarAlquiler(){
-
+  private agregarNuevasFechas(datosReservacion: any){
+    const rangoFechas = this.ayudante.getRangoFechasReservaciones(datosReservacion.comienzaEn,datosReservacion.terminaEn);
+    this.fechasReservadas.push(...rangoFechas);
   }
   private verificarDiasInvalidos(fecha) {
     return this.fechasReservadas.includes(this.ayudante.FormatearFechaReservacion(fecha)) ||  fecha.diff(momento(), 'days') < 0
   }
-
   private getBookedOutDates(){
     const reservaciones: Reservacion[] = this.alquiler.reservaciones;
     if (reservaciones && reservaciones.length > 0) {
@@ -57,10 +64,16 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     this.nuevaReservacion.alquiler = this.alquiler;
     this.reservacionServicio.crearReservacion(this.nuevaReservacion).subscribe(
       (reservacionDatos) => {
+        this.agregarNuevasFechas(reservacionDatos);
         this.nuevaReservacion = new Reservacion();
+        this.toastr.success('Se ha creado la reservacion exitosamente.', 'Exito!');
       },
-      () => {
-
+      (err) => {
+        this.toastr.info();
+        this.toastr.warning();
+        this.toastr.error(err.error.errors[0].detalles, err.error.errors[0].titulo, {
+          timeOut: 3000
+        });
       }
     );
   }
@@ -71,8 +84,7 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     this.nuevaReservacion.dias = -(value.start.diff(value.end, 'days'));
     this.nuevaReservacion.montoTotal = this.nuevaReservacion.dias * this.alquiler.precioNoche;
     }
-  
-    openDialog(): void {
+  openDialog(): void {
       const dialogRef = this.dialog.open(ModalComponent, {
         width: '350px',
         data: {

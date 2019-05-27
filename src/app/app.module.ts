@@ -9,6 +9,8 @@ import { FooterComponent } from './common/footer/footer.component';
 import { AlquileresModule } from './alquileres/alquileres.module';
 import { AutenticacionModule } from './autenticacion/autenticacion.module';
 import { AyudaModule } from  './ayuda/ayuda.module';
+import { ToastrModule } from 'ngx-toastr';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
@@ -16,6 +18,8 @@ import { MatCardModule, MatSelectModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 import { from } from 'rxjs';
 
 
@@ -31,10 +35,12 @@ import { from } from 'rxjs';
     AlquileresModule,
     AutenticacionModule,
     AyudaModule,
+    ToastrModule.forRoot(),
     MatCardModule, MatSelectModule,MatInputModule,
     FormsModule,
     MatCheckboxModule,
     MatSliderModule,
+    MatTooltipModule,
     BrowserAnimationsModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule
   ],
   providers: [],

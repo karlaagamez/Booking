@@ -16,136 +16,183 @@ body {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 20px;
-  font: sans-serif; //cambiar fuente
 }
 .departamento {
     color: #a72da3;
 }
-
 .habitacion {
     color: #d68000;
 }
-
 .casa{
     color: #bf1818;
 }
-
-
-.btn-booking {
-    background-color: $main-color !important; // #F44336
-    border-color: $main-color !important; // #F44336
-    color: white !important;
-    padding: 15px 30px;
-    font-size: 20px;
-
-    &:hover, &:focus, &:active {
-        border-color: $main-color !important;
-        background-color: $main-color !important;
-    }
-    
+.puntero {
+  cursor: pointer;
 }
-.bwm-form {
-    color: $main-text-color;
-  
-    form {
-      margin-bottom: 10px;
-    }
-  
-    .alert {
-      p {
-        margin: 0;
-      }
-    }
-  
-    h1 {
-      margin-bottom: 30px;
-    }
-    .image-container {
-      position: relative;
-  
-      img {
-        width: 100%;
-        border-radius: 0px;
-      }
-    }
-  
-  
-    .catchphrase {
-      text-align: center;
-      font-size: 42px;
-      position: absolute;
-      color: #f1f1f1;
-      padding: 40px;
-      background-color: rgba(0,0,0, 0.5);
-      margin-top: 100px;
-      letter-spacing: 1px;
-    }
-  }
 
-  .puntero {
-    cursor: pointer;
-  }
-  //cambio de tamanio para contenido
+//cambio de tamanio para contenido
 ._14 {
-  font-size: 14px;
-  h1, h2, h3, h4, h5 , h6 {
-    font-size: 30px;
-  }
-  p{
-    font-size: 14px;
-  }
-}
-._15 {
-  font-size: 15px;
-  h1, h2, h3, h4, h5 , h6 {
-    font-size: 31px;
-  }
-  p{
-    font-size: 15px;
-  }
-}
-._16 {
   font-size: 16px;
   h1, h2, h3, h4, h5 , h6 {
-    font-size: 32px;
+    font-size: 26px;
   }
   p{
     font-size: 16px;
   }
 }
-._17 {
+._15 {
   font-size: 17px;
   h1, h2, h3, h4, h5 , h6 {
-    font-size: 33px;
+    font-size: 27px;
   }
   p{
     font-size: 17px;
   }
 }
-._18 {
+._16 {
   font-size: 18px;
   h1, h2, h3, h4, h5 , h6 {
-    font-size: 34px;
+    font-size: 28px;
   }
   p{
     font-size: 18px;
   }
 }
-._19 {
+._17 {
   font-size: 19px;
   h1, h2, h3, h4, h5 , h6 {
-    font-size: 35px;
+    font-size: 29px;
   }
   p{
     font-size: 19px;
   }
 }
-._20 {
+._18 {
   font-size: 20px;
   h1, h2, h3, h4, h5 , h6 {
-    font-size: 36px;
+    font-size: 30px;
   }
   p{
     font-size: 20px;
   }
+}
+
+//paginas de login y registro
+.full-width{
+  width: 100%;
+}
+.alertas {
+  margin-top: 1%  !important;
+  border-radius: 0% !important;
+}
+
+.registration-form{
+  width: 1000px;
+  margin: 40px auto;
+}
+
+.registration-form .image{
+float: right;
+background-image: url("../src/assets/imagenes/login.jpg");
+height: 500px;
+width: 60%;
+background-position: 25%;
+}
+.registration-form .image2{
+  float: right;
+  background-image: url("../src/assets/imagenes/registro.jpg");
+  height: 1200px;
+  width: 60%;
+  background-position: 25%;
+  }
+.registration-form .frm{
+  float: left;//
+  height: 1200px;//
+  width: 40%;//
+  min-width: 250px;//
+  padding: 0 35px;//
+  background-size: 100% 100%;
+  background-color: white;
+}
+.registration-form .frm2{
+  float: left;//
+  height: 500px !important;//
+  width: 40%;//
+  min-width: 250px;//
+  padding: 0 35px;//
+  background-size: 100% 100%;
+  background-color: white;
+}
+.registration-form .image {
+  .frase {
+      text-align: center;
+      width: 100%;
+      position: relative;
+      font-size: 42px;
+      color: #f1f1f1;
+      padding: 40px;
+      background-color: rgba(0,0,0, 0.5);
+      margin-top: 20%;
+      letter-spacing: 1px;
+  }
+}
+
+.registration-form .image2 {
+  .frase {
+      text-align: center;
+      width: 100%;
+      position: relative;
+      font-size: 42px;
+      color: #f1f1f1;
+      padding: 40px;
+      background-color: rgba(0,0,0, 0.5);
+      margin-top: 20%;
+      letter-spacing: 1px;
+  }
+}
+
+
+.registration-form h1{
+margin-top: 30px;
+margin-bottom: 20px;
+}
+
+.registration-form .form-controls{
+width: 90%;
+padding: 12px 20px;
+height: auto;
+}
+
+@media screen and (max-width: 700px){
+.registration-form .image{
+  width: 30%;
+    background-position: 60%;
+}
+
+.registration-form .frm{
+  width: 70%;
+}
+
+.registration-form .form-controls{
+  width: 100%;
+}
+}
+
+@media screen and (max-width: 500px){
+.registration-form .image{
+  display: none;
+}
+
+.registration-form .frm{
+  width: 100%;
+}
+
+.registration-form h1{
+  text-align: center;
+}
+
+.registration-form .btn{
+  width: 100%;
+  margin-top: 20px;
+}
 }

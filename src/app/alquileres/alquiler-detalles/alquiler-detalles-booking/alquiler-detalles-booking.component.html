@@ -2,24 +2,36 @@
   <h3 class="booking-price">${{alquiler.precioNoche}} MXN <span class="booking-per-night">por noche</span></h3>
   <hr>
   <form #reservForm = "ngForm">
-  <label>Fecha</label>
-    <input type="text" class="form-control daterangepicker-input" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)"
-     />
+    <mat-form-field class="full-width form-group">
+      <input  matInput 
+              placeholder="Fecha" 
+              type="text"
+              class="daterangepicker-input"
+              name="daterangeInput"
+              daterangepicker
+              [options]="options"
+              (selected)="selectedDate($event, daterange)"
+              required>
+    </mat-form-field>
   <div class="form-group">
-    <label for="guests">Guests</label>
-    <input [(ngModel)] = "nuevaReservacion.invitados"
-          name="invitados"
-          type="number" 
-          class="form-control" 
-          id="guests" 
-          aria-describedby="emailHelp" required>
+          <mat-form-field class="full-width form-group">
+              <input  matInput placeholder="Invitados"
+                      [(ngModel)] = "nuevaReservacion.invitados"
+                      name="invitados"
+                      type="number" 
+                      id="guests" 
+                      aria-describedby="emailHelp" required >
+            </mat-form-field>
+          
   </div>
 </form>
-  <button 
-        (click)="openDialog()" 
-        class="btn btn-danger btn-confirm btn-block"
-        [disabled] = "!reservForm.form.valid || !nuevaReservacion.comienzaEn || !nuevaReservacion.terminaEn"
-        >Reserve place now</button>
+<button mat-raised-button 
+        color="primary"
+        class="btn-block btn-confirm"
+        (click) = "openDialog()"
+        [disabled] = "!reservForm.form.valid || !nuevaReservacion.comienzaEn || !nuevaReservacion.terminaEn">
+        Reserva ahora
+</button>
   <hr>
   <p class="booking-note-title">People are interested into this house</p>
   <p class="booking-note-text">

@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
               private enrutador: Router) { }
 
   ngOnInit() {
+    this.tamContenido = '_14';
   }
   //FUNCION PARA EL TAMA;O DE FUENTE
   get tickInterval(): number | 'auto' {
@@ -89,8 +90,6 @@ export class HeaderComponent implements OnInit {
       case 16: this.tamContenido = '_16'; break;
       case 17: this.tamContenido = '_17'; break;
       case 18: this.tamContenido = '_18'; break;
-      case 19: this.tamContenido = '_19'; break;
-      case 20: this.tamContenido = '_20'; break;
     }
 
   }

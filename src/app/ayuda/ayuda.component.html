@@ -2,8 +2,8 @@
 <div class="container">
     <h1 class="titulo" style="margin-top:40px;">Preguntas frecuentes</h1>
 </div>
-<mat-drawer-container class="tam">
-    <mat-drawer mode="side" class="sidebar" opened>
+<mat-drawer-container class="container-fluid">
+    <mat-drawer mode="side" class="sidebar col-lg-2" opened>
         <mat-list role="list">
     <div>
         <mat-list-item class="items" (click) = "setTema(1)">Primeros pasos</mat-list-item>
@@ -15,7 +15,7 @@
     </div>
         </mat-list>
     </mat-drawer>
-    <mat-drawer-content class="content">
+    <mat-drawer-content class="content col-lg-10">
         <app-ayuda-lista [tema] = "tema"></app-ayuda-lista>
     </mat-drawer-content>
 </mat-drawer-container>

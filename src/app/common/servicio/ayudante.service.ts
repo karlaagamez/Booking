@@ -6,14 +6,14 @@ import * as momento from 'moment';
 export class AyudanteService{
     private getRangoFechas(comienzaEn, terminaEn, formatoFecha) {
         const tempFechas = [];
-        const mTerminaEn = momento(terminaEn);
+        let mTerminaEn = momento(terminaEn);
         let mComienzaEn = momento(comienzaEn);
-        while(mComienzaEn < mTerminaEn) {
+        mComienzaEn = mComienzaEn.add(1,'day');
+        mTerminaEn = mTerminaEn.add(1,'day');
+        while(mComienzaEn <= mTerminaEn) {
             tempFechas.push(mComienzaEn.format(formatoFecha));
             mComienzaEn = mComienzaEn.add(1,'day');
         }
-        tempFechas.push(momento(comienzaEn).format(formatoFecha));
-        tempFechas.push(mTerminaEn.format(formatoFecha));
         return tempFechas;
     }
     private formatearFecha(fecha, formatoFecha) {

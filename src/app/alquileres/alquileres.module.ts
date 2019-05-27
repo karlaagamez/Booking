@@ -20,11 +20,12 @@ import { AutenticacionGuard } from '../autenticacion/compartido/autenticacion.gu
 import { AlquilerDetallesBookingComponent } from './alquiler-detalles/alquiler-detalles-booking/alquiler-detalles-booking.component';
 import { ModalComponent } from './alquiler-detalles/alquiler-detalles-booking/modal/modal.component';
 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatCardModule} from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
 
 
 const routes: Routes = [
@@ -59,7 +60,8 @@ const routes: Routes = [
         MatDialogModule,
         MatCardModule,
         MatDividerModule,
-        FormsModule
+        FormsModule,
+        MatInputModule
     ],
     entryComponents: [
         ModalComponent

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AyudaRoutingModule } from './ayuda-routing.module';
 import { AyudaComponent } from './ayuda.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { AyudaListaComponent } from './ayuda-lista/ayuda-lista.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -19,7 +18,6 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [
       AyudaComponent,
       AyudaListaComponent,
-      BreadcrumbComponent
   ],
   imports: [
     CommonModule,

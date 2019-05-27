@@ -7,10 +7,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { AutenticacionComponent } from './autenticacion.component';
-
 import { AutenticacionService } from './compartido/autenticacion.service';
 import { AutenticacionGuard } from './compartido/autenticacion.guard';
 import { TokenInterceptor } from './compartido/token.interceptor';
+
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 const routes: Routes = [
@@ -22,13 +29,20 @@ const routes: Routes = [
   declarations: [
     LoginComponent,
     RegistroComponent,
-    AutenticacionComponent
+    AutenticacionComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatIconModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [
