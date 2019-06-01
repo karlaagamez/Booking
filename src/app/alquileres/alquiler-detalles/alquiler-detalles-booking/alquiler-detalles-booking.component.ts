@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Reservacion } from 'src/app/reservaciones/compartido/reservacion.model';
 import { Alquiler } from '../../compartido/alquiler.model';
 import { MatDialog } from '@angular/material';
@@ -6,6 +6,7 @@ import { ModalComponent } from './modal/modal.component';
 import { AyudanteService } from '../../../common/servicio/ayudante.service';
 import { ReservacionService } from '../../../reservaciones/compartido/reservacion.service';
 import { ToastrService } from 'ngx-toastr';
+import { DaterangePickerComponent } from 'ng2-daterangepicker';
 
 import * as momento from 'moment';
 
@@ -18,7 +19,8 @@ import * as momento from 'moment';
 export class AlquilerDetallesBookingComponent implements OnInit {
 
   @Input() alquiler: Alquiler;
-
+  @ViewChild(DaterangePickerComponent)
+  private picker: DaterangePickerComponent;
   nuevaReservacion: Reservacion;
   daterange: any = {};
   fechasReservadas: any[] = [];
@@ -28,8 +30,8 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     alwaysShowCalendars: false,
     opens: 'left',
     drops: 'down',
+    autoUpdateInput: false,
     buttonClasses: 'mat-raised-button',
-    showCustomRangeLabel: true,
     showISOWeekNumbers: true,
     isInvalidDate: this.verificarDiasInvalidos.bind(this)
   };
@@ -66,6 +68,7 @@ export class AlquilerDetallesBookingComponent implements OnInit {
       (reservacionDatos) => {
         this.agregarNuevasFechas(reservacionDatos);
         this.nuevaReservacion = new Reservacion();
+        this.resetDatePicker();
         this.toastr.success('Se ha creado la reservacion exitosamente.', 'Exito!');
       },
       (err) => {
@@ -79,11 +82,17 @@ export class AlquilerDetallesBookingComponent implements OnInit {
   }
      
   selectedDate(value: any, datepicker?: any) {
+    this.options.autoUpdateInput = true;
     this.nuevaReservacion.comienzaEn = this.ayudante.FormatearFechaReservacion(value.start);
     this.nuevaReservacion.terminaEn = this.ayudante.FormatearFechaReservacion(value.end);
     this.nuevaReservacion.dias = -(value.start.diff(value.end, 'days'));
     this.nuevaReservacion.montoTotal = this.nuevaReservacion.dias * this.alquiler.precioNoche;
     }
+  private resetDatePicker(){
+    this.picker.datePicker.setStartDate(momento());
+    this.picker.datePicker.setEndDate(momento());
+    this.picker.datePicker.element.val('');
+  }
   openDialog(): void {
       const dialogRef = this.dialog.open(ModalComponent, {
         width: '350px',
