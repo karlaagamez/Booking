@@ -24,7 +24,11 @@
     .nav-item {
       font-size: 14px;
     }
-  
+    .dropdown-item{
+      &:active &:focus{
+        background-color:red;
+      }
+    }
   }
 .nav-items {
   height: 100%;
@@ -47,4 +51,7 @@
 .sidebar {
   height: 100%;
   max-width: 300px;
+}
+.nav-links{
+  cursor: pointer;
 }

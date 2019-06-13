@@ -7,7 +7,7 @@ import { AyudanteService } from '../../../common/servicio/ayudante.service';
 import { ReservacionService } from '../../../reservaciones/compartido/reservacion.service';
 import { ToastrService } from 'ngx-toastr';
 import { DaterangePickerComponent } from 'ng2-daterangepicker';
-
+import { AutenticacionService } from '../../../autenticacion/compartido/autenticacion.service';
 import * as momento from 'moment';
 
 
@@ -40,11 +40,15 @@ export class AlquilerDetallesBookingComponent implements OnInit {
     private ayudante: AyudanteService,
     private dialog: MatDialog,
     private reservacionServicio: ReservacionService,
-    private toastr: ToastrService) {}
+    private toastr: ToastrService,
+    private aut: AutenticacionService) {}
 
   ngOnInit() {
     this.nuevaReservacion = new Reservacion();
     this.getBookedOutDates();
+  }
+  estaAutenticado(){
+    return this.aut.esAutenticado();
   }
   private agregarNuevasFechas(datosReservacion: any){
     const rangoFechas = this.ayudante.getRangoFechasReservaciones(datosReservacion.comienzaEn,datosReservacion.terminaEn);

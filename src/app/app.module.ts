@@ -10,6 +10,7 @@ import { AlquileresModule } from './alquileres/alquileres.module';
 import { AutenticacionModule } from './autenticacion/autenticacion.module';
 import { AyudaModule } from  './ayuda/ayuda.module';
 import { ToastrModule } from 'ngx-toastr';
+import { GestionModule } from './gestion/gestion.module';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -35,6 +36,7 @@ import { from } from 'rxjs';
     AlquileresModule,
     AutenticacionModule,
     AyudaModule,
+    GestionModule,
     ToastrModule.forRoot(),
     MatCardModule, MatSelectModule,MatInputModule,
     FormsModule,

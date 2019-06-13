@@ -11,6 +11,11 @@
 
   .details-section {
     color: $main-text-color;
+    .alquiler {
+      &-propietario{
+
+      }
+    }
     .rental {
       &-type {
         font-size: 14px;
@@ -18,7 +23,18 @@
         text-transform: uppercase;
         margin: 0;
       }
-
+      &-owner{
+        float: right;
+        img {
+          height: 50px;
+          border-radius: 50%;
+          display: block;
+          margin: 0 auto;
+        }
+        span{
+          display: block;
+        }
+      }
       &-title {
         margin-bottom: 5px;
         font-size: 32px;
@@ -82,4 +98,59 @@
   margin-top: 20px; 
   background-color: #ffffff;
   border-radius: 0%;
+}
+
+
+.booking {
+  padding: 20px;
+  border-radius: 0%;
+  border: 1px solid $light-gray-color;
+  .btn-confirm {
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px;
+  }
+
+  label {
+    font-size:12px;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  &-price {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &-per-night {
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  &-note-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &-note-text {
+    font-size: 13px;
+    font-weight: 300;
+  }
+}
+.full-width {
+  width: 100%;
+}
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color:rgba(0,0,0, 0.5);
+  opacity: .8;
+}
+.spinner {
+  margin: 300px auto;
 }

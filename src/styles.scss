@@ -105,6 +105,13 @@ background-position: 25%;
   width: 60%;
   background-position: 25%;
   }
+  .registration-form .image3{
+    float: right;
+    background-image: url("../src/assets/imagenes/create-rental.jpg");
+    height: 1000px !important; 
+    width: 45%;
+    background-position: 25%;
+    }
 .registration-form .frm{
   float: left;//
   height: 1200px;//
@@ -118,6 +125,15 @@ background-position: 25%;
   float: left;//
   height: 500px !important;//
   width: 40%;//
+  min-width: 250px;//
+  padding: 0 35px;//
+  background-size: 100% 100%;
+  background-color: white;
+}
+.registration-form .frm3{
+  float: left;//
+  height: 1000px !important;//
+  width: 55%;//
   min-width: 250px;//
   padding: 0 35px;//
   background-size: 100% 100%;
@@ -138,6 +154,19 @@ background-position: 25%;
 }
 
 .registration-form .image2 {
+  .frase {
+      text-align: center;
+      width: 100%;
+      position: relative;
+      font-size: 42px;
+      color: #f1f1f1;
+      padding: 40px;
+      background-color: rgba(0,0,0, 0.5);
+      margin-top: 20%;
+      letter-spacing: 1px;
+  }
+}
+.registration-form .image3 {
   .frase {
       text-align: center;
       width: 100%;
@@ -196,3 +225,4 @@ height: auto;
   margin-top: 20px;
 }
 }
+

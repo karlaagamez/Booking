@@ -93,5 +93,8 @@ export class HeaderComponent implements OnInit {
     }
 
   }
+  buscar(ciudad:string){
+    ciudad ? this.enrutador.navigate([`/alquileres/${ciudad}/lugares`]): this.enrutador.navigate([`/alquileres`]);
+  }
 
 }

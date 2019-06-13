@@ -1,6 +1,7 @@
 import { Reservacion } from 'src/app/reservaciones/compartido/reservacion.model';
 
 export class Alquiler {
+        static readonly CATEGORIAS = ['casa','departamento','condominio'];
         _id: String;
         titulo: String;
         categoria: String;
@@ -11,7 +12,7 @@ export class Alquiler {
         cuartos: number;
         noPersonas: number;
         camas: number;
-        baños: number;
+        banos: number;
         precioNoche: number;
         cocina: String;
         cuartoLavado: String;
