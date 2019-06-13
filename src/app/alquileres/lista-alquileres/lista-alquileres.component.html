@@ -14,24 +14,23 @@
             </div>
           </div>
         </div>
-<div class="container" style="width: 100%;">
-    <div id="rentalListing">
-        <h1 class="titulo" style="margin-top:20px;">Tu Casa Alrededor de México</h1>
-        <div *ngIf = "cargando" class="col-sm">
-          <mat-spinner></mat-spinner>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam rem tenetur tempora est facere dolores voluptatibus recusandae fugit beatae dolorum nam voluptas quos eum odit, perspiciatis fugiat porro, magnam asperiores!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero laborum recusandae adipisci sunt autem, doloribus necessitatibus ducimus incidunt optio vel dignissimos nemo itaque nihil consectetur eos facilis minima? Magnam, similique!
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, et odio. Voluptatibus aliquid delectus quod et ab, voluptas esse officiis adipisci. Porro accusantium ex ipsum recusandae architecto, rerum quo nulla?
-          </div>
-        <div class="row">
-          <div class='col-md-3 col-xs-6' *ngFor = "let alquiler of alquileres" >
-            <app-lista-alquileres-item [alquilerActual] = "alquiler"></app-lista-alquileres-item>
-            
-          </div>
+        <div class="container" style="width: 100%;">
+            <div id="rentalListing">
+                <h1 class="titulo" style="margin-top:20px;">Tu casa alrededor de méxico</h1>
+                <div *ngIf = "cargando" class="col-sm">
+                  <mat-spinner></mat-spinner>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam rem tenetur tempora est facere dolores voluptatibus recusandae fugit beatae dolorum nam voluptas quos eum odit, perspiciatis fugiat porro, magnam asperiores!
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero laborum recusandae adipisci sunt autem, doloribus necessitatibus ducimus incidunt optio vel dignissimos nemo itaque nihil consectetur eos facilis minima? Magnam, similique!
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, et odio. Voluptatibus aliquid delectus quod et ab, voluptas esse officiis adipisci. Porro accusantium ex ipsum recusandae architecto, rerum quo nulla?
+                </div>
+                <div class="row">
+                  <div class='col-md-3 col-xs-6' *ngFor = "let alquiler of alquileres" >
+                    <app-lista-alquileres-item [alquilerActual] = "alquiler"></app-lista-alquileres-item>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf = "error" routerLink="/alquileres">
+              {{error}}
+              </div>
         </div>
-      </div>
-      <div *ngIf = "error" routerLink="/alquileres">
-      {{error}}
-      </div>
-</div>
     

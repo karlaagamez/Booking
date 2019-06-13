@@ -34,6 +34,9 @@ export class AutenticacionService {
   public getAutToken(): string {
     return localStorage.getItem('booking_autenticacion');
   }
+  public getAutData(): string{
+    return localStorage.getItem('booking_meta');
+  }
   public login(datosUsuario: any): Observable<any> {
     return this.http.post('/api/v1/usuarios/auth', datosUsuario).map((token: string) => this.guardarToken(token));
   }

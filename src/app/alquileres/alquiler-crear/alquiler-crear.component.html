@@ -1,0 +1,171 @@
+<div class="container registration-form">
+    <div class="image3">
+        <p class="frase">Cientos de lugares impresionantes al alcance de unos pocos clics.</p>
+    </div>
+    <div class="frm3">
+        <h1>Crear alquiler</h1>
+        <form #alquilerForm="ngForm">
+            <div class="row">
+                <div class="col-md-12 full-width">
+                    <p class="titulo">Informacion general</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Titulo" type="text" id="titulo" name="titulo"
+                                [(ngModel)]="nuevoAlquiler.titulo" required>
+                            <mat-hint>Ingresa un titulo para tu alquiler</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Ciudad" type="text" id="ciudad" name="ciudad"
+                                [(ngModel)]="nuevoAlquiler.ciudad" required>
+                            <mat-hint>Ingresa la ciudad de tu alquiler</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Estado" type="text" id="estado" name="estado"
+                                [(ngModel)]="nuevoAlquiler.estado" required>
+                            <mat-hint>Ingresa en que estado esta situado el alquiler</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Calle" type="text" id="calle" name="calle"
+                                [(ngModel)]="nuevoAlquiler.calle" required>
+                            <mat-hint>Ingresa la calle</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <mat-label>Categoria</mat-label>
+                            <mat-select name="categoria" [(ngModel)]="nuevoAlquiler.categoria" required>
+                                <mat-option *ngFor="let categoria of categoriasAlquiler" value="{{categoria}}">
+                                    {{categoria}}</mat-option>
+                            </mat-select>
+                            <mat-hint>Porfavor elige la categoria</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Cuartos" type="number" id="cuartos" name="cuartos"
+                                [(ngModel)]="nuevoAlquiler.cuartos" required>
+                            <mat-hint>Ingresa el numero de cuartos que tiene el alquiler</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Numero de personas" type="number" id="noPersonas"
+                                name="noPersonas" [(ngModel)]="nuevoAlquiler.noPersonas" required>
+                            <mat-hint>Ingresa el numero de personas maximo que puede hospedarse en el alquiler
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Camas" type="number" id="camas" name="camas"
+                                [(ngModel)]="nuevoAlquiler.camas" required>
+                            <mat-hint>Ingresa el numero de camas que tiene el alquiler (total)</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Baños" type="number" id="banos" name="banos"
+                                [(ngModel)]="nuevoAlquiler.banos" required>
+                            <mat-hint>Ingresa el numero de baños que tiene el alquiler (total)</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-form-field class="full-width" style="margin-bottom: 2%;">
+                            <input matInput placeholder="Precio por noche MXN" type="number" id="precioNoche"
+                                name="precioNoche" [(ngModel)]="nuevoAlquiler.precioNoche" required>
+                            <mat-hint>Ingresa el precio por noche del alquiler en pesos mexicanos</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12 full-width">
+                    <p class="titulo">Bienes</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="full-width">Cocina</label>
+                        <mat-radio-group [(ngModel)]="nuevoAlquiler.cocina" name="cocina" required>
+                            <mat-radio-button color="primary" value="Si">Si</mat-radio-button>
+                            <mat-radio-button color="primary" value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="full-width">Cuarto lavado</label>
+                        <mat-radio-group [(ngModel)]="nuevoAlquiler.cuartoLavado" name="cuartoLavado" required>
+                            <mat-radio-button value="Si">Si</mat-radio-button>
+                            <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="full-width">Sala</label>
+                        <mat-radio-group [(ngModel)]="nuevoAlquiler.sala" name="sala" required>
+                            <mat-radio-button value="Si">Si</mat-radio-button>
+                            <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="full-width">Comedor</label>
+                        <mat-radio-group [(ngModel)]="nuevoAlquiler.comedor" name="comedor" required>
+                            <mat-radio-button value="Si">Si</mat-radio-button>
+                            <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                            <input matInput #message maxlength="256" [(ngModel)]="nuevoAlquiler.descripcion"
+                                name="descripcion" placeholder="Descripcion" required>
+                            <mat-hint align="start"><strong>Ingresa la descripcion de tu alquiler</strong> </mat-hint>
+                            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="full-width">
+                            <input type="file" id="imagen" placeholder="Upload file..." (change)="cambiarImagen()" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button mat-raised-button color="primary" [disabled]= "!alquilerForm.form.valid" type="button" (click)="crearAlquiler()">Registrar
+                    alquiler</button>
+            </div>
+        </form>
+    </div>
+</div>
+.

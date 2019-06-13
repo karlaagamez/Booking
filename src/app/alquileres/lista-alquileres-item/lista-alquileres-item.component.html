@@ -1,10 +1,14 @@
 <a routerLink="/alquileres/{{alquilerActual._id}}">
-  <div class="card bwm-card">
-      <img class="card-img-top img" src="{{alquilerActual.imagen}}" alt="">
-      <div class="card-block">
-        <h6 class="card-subtitle {{alquilerActual.categoria}}">{{alquilerActual.compartido ? 'Compartido' : 'Todo'}} {{alquilerActual.categoria}} &#183; {{alquilerActual.ciudad}}</h6>
-        <h4 class="card-title"> {{alquilerActual.titulo}} </h4>
-        <p class="card-text"> ${{alquilerActual.precioNoche}} MXN por noche &#183; Cancelación libre</p>
-      </div>
-  </div>
+    <mat-card class="example-card card bwm-card">
+        <img mat-card-image src="{{alquilerActual.imagen}}" alt="">
+        <div class="card-block">
+              <mat-card-content>
+                  <mat-card-subtitle class=" card-subtitle {{alquilerActual.categoria}}">{{alquilerActual.categoria}} &#183; {{alquilerActual.ciudad}}</mat-card-subtitle>
+                  <p class="card-title">{{alquilerActual.titulo}}</p>
+                <p class="card-text">
+                    ${{alquilerActual.precioNoche}} MXN por noche &#183; Cancelación libre
+                </p>
+              </mat-card-content>
+        </div>
+      </mat-card>
 </a>

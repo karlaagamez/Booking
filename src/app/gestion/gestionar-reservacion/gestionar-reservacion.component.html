@@ -1,0 +1,36 @@
+<div class="container">
+  <section id="userBookings">
+    <h1 class="titulo" style="margin-top: 40px">Mis reservaciones</h1>
+    <div class="row">
+      <ng-container *ngIf="reservaciones && reservaciones.length > 0">
+        <div class="col-md-4" *ngFor="let reservacion of reservaciones">
+          <div class="card text-center" style="border-radius: 0%">
+            <div class="card-header">
+              {{reservacion.alquiler ? reservacion.alquiler.categoria: 'Alquiler eliminado'}}
+            </div>
+            <div class="card-block">
+              <ng-container *ngIf="reservacion.alquiler">
+                <h4 class="card-title">{{reservacion.alquiler.titulo}} - {{reservacion.alquiler.ciudad | ucwords}} </h4>
+                <p class="card-text booking-desc">{{reservacion.alquiler.descripcion}}</p>
+              </ng-container>
+              <p class="card-text booking-days"> {{reservacion.comienzaEn | formatoFecha}} - {{reservacion.terminaEn | formatoFecha}} |
+                {{reservacion.dias}} dias</p>
+              <p class="card-text booking-price"><span>Precio: </span> <span
+                  class="booking-price-value">${{reservacion.montoTotal}}</span></p>
+              <button mat-raised-button *ngIf="reservacion.alquiler" routerLink="/alquileres/{{reservacion.alquiler._id}}" color="primary">Ir al
+                alquiler</button>
+            </div>
+            <div class="card-footer text-muted">
+              Creado en {{reservacion.creadoEn | formatoFecha}}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="alert alert-warning" *ngIf="reservaciones && reservaciones.length == 0" style="border-radius: 0%">
+        No tienes reservaciones creadas, dirigete a los alquileres y reserva tu lugar hoy!
+        <button mat-raised-button color="primary" routerLink="/alquileres">Alquileres disponibles</button>
+        <!-- link to /rentals -->
+      </div>
+    </div>
+  </section>
+</div>

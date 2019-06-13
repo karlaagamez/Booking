@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Reservaciones realizadas </h1>
+
+<div mat-dialog-content class="contenedor-dialog">
+  <ng-container *ngFor="let reservacion of data.reservaciones; let i = index" >
+    <p style="margin-top: 5px"> <span>Reservacion </span>{{i + 1}}</p>
+    <p><span>Fechas:</span> {{reservacion.comienzaEn | formatoFecha}} - {{reservacion.terminaEn | formatoFecha}} </p> <!-- startAt - endAt -->
+    <p><span>Invitados:</span> {{reservacion.invitados}}</p> <!-- guests -->
+    <p><span>Monto total:</span> $ {{reservacion.montoTotal}} MXN</p> <!-- totalPrice --> 
+    <hr *ngIf="data.reservaciones.length != i +1"> 
+  </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()" >Cerrar</button>
+</div>

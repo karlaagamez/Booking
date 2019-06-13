@@ -12,7 +12,9 @@ const usuarioSchema = new Schema({
     edad: { type: Number, required: true},
     tipo: { type: String, required:true},
     alquileres: [{ type: Schema.Types.ObjectId, ref: 'Alquiler'}],
-    reservaciones: [ { type: Schema.Types.ObjectId, ref: 'Reservacion'} ]
+    reservaciones: [ { type: Schema.Types.ObjectId, ref: 'Reservacion'} ],
+    comentarios: [ { type: Schema.Types.ObjectId, ref: 'Comentario'} ]
+
 
 });
 //FUNCION PARA VERIFICAR SI EL USUARIO EXISTE

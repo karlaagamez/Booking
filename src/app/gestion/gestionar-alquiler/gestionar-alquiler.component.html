@@ -1,0 +1,46 @@
+<div class="container" style="margin-top: 40px">
+  <section id="userRentals">
+    <h1 class="page-title">Mis alquileres</h1>
+    <div class="row">
+      <ng-container *ngIf="alquileres && alquileres.length > 0">
+        <!-- Check for rentals length -->
+        <div class="col-md-4" *ngFor="let alquiler of alquileres; let i = index">
+          <div class="card text-center" style="border-radius: 0%">
+            <div class="card-block">
+              <h4 class="card-title">{{alquiler.titulo}} - {{alquiler.ciudad | ucwords}}</h4>
+              <!-- Rental Title - Rental City -->
+              <button mat-raised-button color="primary" routerLink="/alquileres/{{alquiler._id}}"
+                style="margin-right: 5px;">Ir al alquiler</button>
+              <span *ngIf="alquiler.reservaciones.length > 0">
+                <!-- Check for rental bookings length -->
+                <app-gestionar-alquiler-reservacion [reservaciones]="alquiler.reservaciones">
+                </app-gestionar-alquiler-reservacion>
+              </span>
+            </div>
+            <div class="card-footer text-muted">
+              <p class="col-md-9">Creado en {{alquiler.fechaCreacion | formatoFecha}}</p> <!-- Created At -->
+              <button mat-button (click)="alquilerEliminadoIndex = i " class="col-md-3"
+                *ngIf="alquilerEliminadoIndex !== i" color="warn" type="button">Borrar</button>
+              <div *ngIf="alquilerEliminadoIndex === i" class="">
+                ¿Estas seguro de eliminar este alquiler? <br>
+                <button mat-raised-button class="col-md-4" color="warn" style="margin-right: 5px; margin-top: 3px" (click) = "borrarAlquiler(alquiler._id)">Si</button>
+                <button mat-raised-button class="col-md-4" style="margin-top: 3px" (click) = "alquilerEliminadoIndex = undefined">No</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="col-md-8" *ngIf="alquileres && alquileres.length == 0">
+        <!-- Check if rentals length === 0 -->
+        <div class="alert alert-warning" style="border-radius: 0%">
+          No tienes ningun alquiler creado actualmente. Si quieres promocionar tu lugar haz clic en el siguiente boton.
+          <hr>
+          <button mat-raised-button color="primary" routerLink="/alquileres/nuevo">Registrar alquiler</button>
+          <!-- Link to rentals/new -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

@@ -1,104 +1,110 @@
-
 <div [class]="temaActual" [class]="tamContenido" [class]="" class="contenedor-principal">
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand" href="#">
-          <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;"  alt="">
-        </a>
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" routerLink="/alquileres">
+      <img src="../../../assets/imagenes/Logo .png" style="margin-bottom: 6px;" alt="">
+    </a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <form class="form-inline my-2 my-lg-0">
+        <mat-form-field class="example-full-width">
+          <input matInput (keyup.enter)="buscar(ciudadBuscar.value)" #ciudadBuscar placeholder="Buscar"
+            aria-label="Search" type="search" color="accent">
+        </mat-form-field>
+        <button mat-mini-fab type="button" color="primary">
+          <mat-icon aria-label="Example icon-button with a heart icon" (click)="buscar(ciudadBuscar.value)">search
+          </mat-icon>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <form class="form-inline my-2 my-lg-0">
-                <mat-form-field class="example-full-width">
-                    <input matInput  placeholder="Buscar" aria-label="Search" type="search" color="accent">
-                  </mat-form-field>
-                <button mat-mini-fab type="submit" color="primary">
-                    <mat-icon aria-label="Example icon-button with a heart icon" >search</mat-icon>
-                  </button>
-            </form>
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink = "/ayuda" matTooltip="Preguntas frecuentes">
-                    <mat-icon>help_outline</mat-icon>
-                  </a>
-              </li>
-              <li class="nav-item">
-                <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Opciones de accesibilidad">
-                  <a class="nav-link">
-                      <mat-icon class="puntero">accessible_forward</mat-icon> 
-                  </a>
-                </button>
-              </li>
-            <ng-container *ngIf = "!autenticado()">
-                <li class="nav-item active">
-                    <a class="nav-link nav-links" routerLink = "/login">Iniciar Sesión <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-links" routerLink = "/registro" >Registrarse</a>
-                </li>
-            </ng-container> 
-            <ng-container *ngIf = "autenticado()">
-              <li class="nav-item puntero">
-                <a class="nav-link nav-links">{{getUsername()}}</a>
-              </li>
-              <li class="nav-item puntero">
-                <a class="nav-link  nav-links" (click) = "logout()">Cerrar Sesión</a>
-              </li>
-            </ng-container>   
-            
-          </ul>
-        </div>
-    </nav>
-    <mat-sidenav-container>
-      <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
-        <mat-card>
-          <h4>Temas</h4>
-          <mat-card>
-            <button mat-raised-button color="primary">Primary</button>
-            <button mat-raised-button color="accent">Accent</button>
-            <button mat-raised-button color="warn">Warn</button>
-          </mat-card> <br>
-            <mat-form-field>
-              <mat-label>Temas predeterminados</mat-label>
-              <mat-select [(ngModel)]="temaActual">
-                <mat-option value="tema1">Tema 1</mat-option>
-                <mat-option value="tema2">Tema 2</mat-option>
-              </mat-select>
-            </mat-form-field> 
-        </mat-card>
-        <!--AQUI COMIENZA EL COMPONENTE PARA CAMBIAR TAMA;O DE FUENTE-->
-        <mat-card>
-          <mat-card-content>
-            <h2 class="example-h2">Tamaño de fuente</h2>
-            <section>     
-              <p>Contenido</p>
-                <mat-slider
-                    class="example-margin"
-                    [disabled]="disabled"
-                    [invert]="invert"
-                    [max]="max"
-                    [min]="min"
-                    [step]="step"
-                    [thumbLabel]="thumbLabel"
-                    [tickInterval]="tickInterval"
-                    [(ngModel)]="value"
-                    [vertical]="vertical">
-                </mat-slider>
-            </section>
-            <section>
-                <button mat-raised-button (click)="cambiarFuenteContenido(value)" color="accent">Cambiar</button>
-            </section>
-          </mat-card-content>
-        </mat-card>
-        <!--AQUI TERMINA EL COMPONENTE PARA CAMBIAR EL TAMA;O DE FUENTE-->
-      </mat-sidenav>
-      
-        <mat-sidenav-content>
-          <div>
-              <router-outlet></router-outlet>              
-              <app-footer></app-footer>
-          </div>
-        </mat-sidenav-content>
-    </mat-sidenav-container>  
-</div>
+      </form>
 
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ayuda" matTooltip="Preguntas frecuentes">
+            <mat-icon>help_outline</mat-icon>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Opciones de accesibilidad">
+            <a class="nav-link">
+              <mat-icon class="puntero">accessible_forward</mat-icon>
+            </a>
+          </button>
+        </li>
+        <ng-container *ngIf="!autenticado()">
+          <li class="nav-item active">
+            <a class="nav-link nav-links" routerLink="/login">Iniciar Sesión <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-links" routerLink="/registro">Registrarse</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="autenticado()">
+          <li class="nav-item puntero">
+            <a class="nav-link nav-links">{{getUsername()}}</a>
+          </li>
+          <div class="nav-item dropdown nav-links">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Seccion propietaria
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink='/alquileres/nuevo'>Crear alquiler</a>
+              <a class="dropdown-item" routerLink='/gestionar/alquileres'>Gestionar alquileres</a>
+              <a class="dropdown-item" routerLink='/gestionar/reservaciones'>Gestionar reservaciones</a>
+            </div>
+          </div>
+
+          <li class="nav-item puntero">
+            <a class="nav-link  nav-links" (click)="logout()">Cerrar Sesión</a>
+          </li>
+        </ng-container>
+
+      </ul>
+    </div>
+  </nav>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="push" [(opened)]="opened" class="sidebar">
+      <mat-card>
+        <h4>Temas</h4>
+        <mat-card>
+          <button mat-raised-button color="primary">Primary</button>
+          <button mat-raised-button color="accent">Accent</button>
+          <button mat-raised-button color="warn">Warn</button>
+        </mat-card> <br>
+        <mat-form-field>
+          <mat-label>Temas predeterminados</mat-label>
+          <mat-select [(ngModel)]="temaActual">
+            <mat-option value="tema1">Tema 1</mat-option>
+            <mat-option value="tema2">Tema 2</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+      <!--AQUI COMIENZA EL COMPONENTE PARA CAMBIAR TAMA;O DE FUENTE-->
+      <mat-card>
+        <mat-card-content>
+          <h2 class="example-h2">Tamaño de fuente</h2>
+          <section>
+            <p>Contenido</p>
+            <mat-slider class="example-margin" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min"
+              [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [(ngModel)]="value"
+              [vertical]="vertical">
+            </mat-slider>
+          </section>
+          <section>
+            <button mat-raised-button (click)="cambiarFuenteContenido(value)" color="accent">Cambiar</button>
+          </section>
+        </mat-card-content>
+      </mat-card>
+      <!--AQUI TERMINA EL COMPONENTE PARA CAMBIAR EL TAMA;O DE FUENTE-->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

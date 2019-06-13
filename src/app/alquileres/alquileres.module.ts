@@ -19,6 +19,8 @@ import { Daterangepicker } from 'ng2-daterangepicker';
 import { AutenticacionGuard } from '../autenticacion/compartido/autenticacion.guard';
 import { AlquilerDetallesBookingComponent } from './alquiler-detalles/alquiler-detalles-booking/alquiler-detalles-booking.component';
 import { ModalComponent } from './alquiler-detalles/alquiler-detalles-booking/modal/modal.component';
+import { BuscarAlquilerComponent } from './buscar-alquiler/buscar-alquiler.component';
+import { AlquilerCrearComponent } from './alquiler-crear/alquiler-crear.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,19 +28,29 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 
 const routes: Routes = [
-    {path: 'alquileres', 
-    component: AlquileresComponent,
-    children: [
-        { path: '', component: ListaAlquileresComponent},
-        { path: ':alquilerId', component: AlquilerDetallesComponent, canActivate: [AutenticacionGuard]}
-    ]
-},
-    
+    {
+        path: 'alquileres',
+        component: AlquileresComponent,
+        children: [
+            { path: '', component: ListaAlquileresComponent },
+            { path: 'nuevo', component: AlquilerCrearComponent, canActivate: [AutenticacionGuard]  },
+            { path: ':alquilerId', component: AlquilerDetallesComponent },
+            { path: ':ciudad/lugares', component: BuscarAlquilerComponent }
+
+        ]
+    },
+
 ];
-  
+
 @NgModule({
     declarations: [
         ListaAlquileresItemComponent,
@@ -47,7 +59,9 @@ const routes: Routes = [
         AlquilerDetallesComponent,
         MayusculaPipe,
         AlquilerDetallesBookingComponent,
-        ModalComponent
+        ModalComponent,
+        BuscarAlquilerComponent,
+        AlquilerCrearComponent
     ],
     imports: [
         CommonModule,
@@ -61,11 +75,16 @@ const routes: Routes = [
         MatCardModule,
         MatDividerModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatRadioModule
     ],
     entryComponents: [
         ModalComponent
-       ],
+    ],
     providers: [
         AlquileresService,
         AyudanteService,
@@ -73,4 +92,4 @@ const routes: Routes = [
         AutenticacionGuard
     ]
 })
-export class AlquileresModule{}
+export class AlquileresModule { }

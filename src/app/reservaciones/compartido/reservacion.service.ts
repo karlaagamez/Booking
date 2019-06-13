@@ -11,4 +11,7 @@ export class ReservacionService {
   public crearReservacion(reservacion: Reservacion): Observable<any> {
     return this.http.post('/api/v1/reservaciones',reservacion );
   }
+  public getReservacionesUsuario(): Observable <any> {
+    return this.http.get('/api/v1/reservaciones/gestionar');
+  }
 }
